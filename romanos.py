@@ -17,17 +17,11 @@ def romano_a_arabigo(numRomano):
                     numRepes = 1
                     pass
                 elif valores[ultimoCaracter] == valores[letra]:
-                    
-                    numRepes += 1
-                    
+                    numRepes += 1  
                     if letra in valores5:
                         return 0
-
                     if numRepes > 3:
-                        return 0
-                
-                
-                
+                        return 0                               
                 elif valores[ultimoCaracter] < valores[letra]:
                     if numRepes > 1: #No permite repeticiones en las restas
                         return 0
@@ -50,3 +44,10 @@ def romano_a_arabigo(numRomano):
 
     return numArabigo
 
+'''
+def arabigo_a_romano(valor):
+    # 1.- descomponer valor en digitos separando millares, centenas, decenas y unidades
+    #2.- Procesar uno a uno estos dígitos y transformarlos en su forma romana
+    #3.- Ir concatenando cada resultado en una cadena completa
+    #4.- Devolverla
+'''
