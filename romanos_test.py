@@ -23,10 +23,20 @@ class RomanNumberTest(unittest.TestCase):
     def test_no_mas_de_tres_repeticiones(self):
         self.assertEqual(romano_a_arabigo('LXXIII'), 73)
         self.assertEqual(romano_a_arabigo('IIII'), 0)
+        #self.assertEqual(romano_a_arabigo('VV'), 0)
 
 
     def test_numeros_decrecientes(self):
         self.assertEqual(romano_a_arabigo('CMXCIX'), 999)
+        self.assertEqual(romano_a_arabigo('IX'), 9)
+        
+    
+
+    def test_restas_no_admiten_repeticiones(self):
+        self.assertEqual(romano_a_arabigo('MIIX'), 0)
+
+
+    def test_restas_no_admiten_derivados_del_5(self):
         self.assertEqual(romano_a_arabigo('VC'), 0)
 
 if __name__ == '__main__':
