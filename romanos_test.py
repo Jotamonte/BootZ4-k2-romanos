@@ -38,6 +38,11 @@ class RomanNumberTest(unittest.TestCase):
 
     def test_restas_no_admiten_derivados_del_5(self):
         self.assertEqual(romano_a_arabigo('VC'), 0)
+    
+    def test_restas_no_admiten_mas_de_un_orden_de_diferencia(self):
+        self.assertEqual(romano_a_arabigo('IC'), 0)
+        self.assertEqual(romano_a_arabigo('IL'), 0)
+        self.assertEqual(romano_a_arabigo('VL'), 0)
 
 if __name__ == '__main__':
     unittest.main()

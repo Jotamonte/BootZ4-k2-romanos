@@ -1,5 +1,6 @@
 valores = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
 valores5 = {'V':5, 'L':50,  'D':500}
+simbolosOrdenados = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
 
 def romano_a_arabigo(numRomano):
     numArabigo = 0
@@ -16,14 +17,28 @@ def romano_a_arabigo(numRomano):
                     numRepes = 1
                     pass
                 elif valores[ultimoCaracter] == valores[letra]:
+                    
                     numRepes += 1
+                    
+                    if letra in valores5:
+                        return 0
+
                     if numRepes > 3:
                         return 0
+                
+                
+                
                 elif valores[ultimoCaracter] < valores[letra]:
-                    if numRepes > 1:
+                    if numRepes > 1: #No permite repeticiones en las restas
                         return 0
-                    if ultimoCaracter in valores5:
+                    
+                    if ultimoCaracter in valores5: #No permite restas de valores de 5
                         return 0
+                    
+                    distancia = simbolosOrdenados.index(letra) - simbolosOrdenados.index(ultimoCaracter) #No permite que se resten unidades de más de un orden
+                    if distancia > 2:
+                        return 0
+                    
                     numArabigo -= valores[ultimoCaracter]*2
                     numRepes = 1
             
